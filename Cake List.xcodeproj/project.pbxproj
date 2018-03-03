@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F2837B62045E5960015C247 /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2837B52045E5960015C247 /* Cake.m */; };
+		8F2837B92045E5C40015C247 /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2837B82045E5C40015C247 /* HTTPService.m */; };
 		DBF17A171B0B648F004E6311 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A161B0B648F004E6311 /* main.m */; };
 		DBF17A1A1B0B648F004E6311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A191B0B648F004E6311 /* AppDelegate.m */; };
 		DBF17A1D1B0B648F004E6311 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A1C1B0B648F004E6311 /* MasterViewController.m */; };
@@ -15,6 +17,7 @@
 		DBF17A281B0B648F004E6311 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBF17A261B0B648F004E6311 /* LaunchScreen.xib */; };
 		DBF17A341B0B648F004E6311 /* Cake_ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A331B0B648F004E6311 /* Cake_ListTests.m */; };
 		DBF17A3F1B0B8E16004E6311 /* CakeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A3E1B0B8E16004E6311 /* CakeCell.m */; };
+		F136352A204AC85D00366F87 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F1363529204AC85D00366F87 /* UIImage+ResizeImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F2837B42045E5960015C247 /* Cake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cake.h; sourceTree = "<group>"; };
+		8F2837B52045E5960015C247 /* Cake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cake.m; sourceTree = "<group>"; };
+		8F2837B72045E5C40015C247 /* HTTPService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPService.h; sourceTree = "<group>"; };
+		8F2837B82045E5C40015C247 /* HTTPService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPService.m; sourceTree = "<group>"; };
 		DBF17A111B0B648F004E6311 /* Cake List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cake List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF17A151B0B648F004E6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF17A161B0B648F004E6311 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +50,8 @@
 		DBF17A331B0B648F004E6311 /* Cake_ListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cake_ListTests.m; sourceTree = "<group>"; };
 		DBF17A3D1B0B8E16004E6311 /* CakeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CakeCell.h; sourceTree = "<group>"; };
 		DBF17A3E1B0B8E16004E6311 /* CakeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CakeCell.m; sourceTree = "<group>"; };
+		F1363528204AC85D00366F87 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
+		F1363529204AC85D00366F87 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F2837B02045E5160015C247 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F2837B42045E5960015C247 /* Cake.h */,
+				8F2837B52045E5960015C247 /* Cake.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8F2837B12045E5200015C247 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBF17A3D1B0B8E16004E6311 /* CakeCell.h */,
+				DBF17A3E1B0B8E16004E6311 /* CakeCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8F2837B22045E5260015C247 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DBF17A1B1B0B648F004E6311 /* MasterViewController.h */,
+				DBF17A1C1B0B648F004E6311 /* MasterViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8F2837B32045E5380015C247 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8F2837B72045E5C40015C247 /* HTTPService.h */,
+				8F2837B82045E5C40015C247 /* HTTPService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		DBF17A081B0B648F004E6311 = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +129,15 @@
 		DBF17A131B0B648F004E6311 /* Cake List */ = {
 			isa = PBXGroup;
 			children = (
+				F1363527204AC81A00366F87 /* Utilities */,
+				8F2837B32045E5380015C247 /* Services */,
+				8F2837B22045E5260015C247 /* Controller */,
+				8F2837B12045E5200015C247 /* View */,
+				8F2837B02045E5160015C247 /* Model */,
 				DBF17A181B0B648F004E6311 /* AppDelegate.h */,
 				DBF17A191B0B648F004E6311 /* AppDelegate.m */,
-				DBF17A401B0B8EE3004E6311 /* View Controllers */,
-				DBF17A411B0B8EED004E6311 /* Cells */,
-				DBF17A211B0B648F004E6311 /* Main.storyboard */,
 				DBF17A241B0B648F004E6311 /* Images.xcassets */,
+				DBF17A211B0B648F004E6311 /* Main.storyboard */,
 				DBF17A261B0B648F004E6311 /* LaunchScreen.xib */,
 				DBF17A141B0B648F004E6311 /* Supporting Files */,
 			);
@@ -122,22 +170,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DBF17A401B0B8EE3004E6311 /* View Controllers */ = {
+		F1363527204AC81A00366F87 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				DBF17A1B1B0B648F004E6311 /* MasterViewController.h */,
-				DBF17A1C1B0B648F004E6311 /* MasterViewController.m */,
+				F136352B204AC94700366F87 /* Categories */,
 			);
-			name = "View Controllers";
+			name = Utilities;
 			sourceTree = "<group>";
 		};
-		DBF17A411B0B8EED004E6311 /* Cells */ = {
+		F136352B204AC94700366F87 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				DBF17A3D1B0B8E16004E6311 /* CakeCell.h */,
-				DBF17A3E1B0B8E16004E6311 /* CakeCell.m */,
+				F1363528204AC85D00366F87 /* UIImage+ResizeImage.h */,
+				F1363529204AC85D00366F87 /* UIImage+ResizeImage.m */,
 			);
-			name = Cells;
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +231,7 @@
 		DBF17A091B0B648F004E6311 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Stewart Hart";
 				TargetAttributes = {
 					DBF17A101B0B648F004E6311 = {
@@ -240,8 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F2837B62045E5960015C247 /* Cake.m in Sources */,
+				F136352A204AC85D00366F87 /* UIImage+ResizeImage.m in Sources */,
 				DBF17A1A1B0B648F004E6311 /* AppDelegate.m in Sources */,
 				DBF17A3F1B0B8E16004E6311 /* CakeCell.m in Sources */,
+				8F2837B92045E5C40015C247 /* HTTPService.m in Sources */,
 				DBF17A1D1B0B648F004E6311 /* MasterViewController.m in Sources */,
 				DBF17A171B0B648F004E6311 /* main.m in Sources */,
 			);
@@ -293,19 +343,28 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -336,13 +395,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -371,6 +438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Cake List/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waracle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -381,6 +449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Cake List/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waracle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -399,6 +468,7 @@
 				);
 				INFOPLIST_FILE = "Cake ListTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waracle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cake List.app/Cake List";
 			};
@@ -414,6 +484,7 @@
 				);
 				INFOPLIST_FILE = "Cake ListTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waracle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cake List.app/Cake List";
 			};

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#include "Cake.h"
 @interface CakeCell : UITableViewCell
+-(void)updateUI:( Cake*)cake;
 @property (weak, nonatomic) IBOutlet UIImageView *cakeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;

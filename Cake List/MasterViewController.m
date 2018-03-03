@@ -8,64 +8,99 @@
 
 #import "MasterViewController.h"
 #import "CakeCell.h"
+#import "HTTPService.h"
+#define TITLE "title"
+#define DESCRIPTION "desc"
+#define IMAGE "image"
+#define CELL_ID "Cell"
 
 @interface MasterViewController ()
-@property (strong, nonatomic) NSArray *objects;
+@property (strong, nonatomic) NSArray *cakesList;
+@property ( nonatomic,retain) UIRefreshControl *refreshControl;
 @end
 
 @implementation MasterViewController
+@synthesize refreshControl;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self getData];
+  [super viewDidLoad];
+  [self settingRefreshControl];
+  self.cakesList = [[NSArray alloc] init];
+  [self fetchData];
+}
+
+- (void)settingRefreshControl {
+  refreshControl = [[UIRefreshControl alloc]init];
+  [self.view addSubview:refreshControl];
+  [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)refreshTable {
+  [self fetchData];
+}
+
+- (void)fetchData {
+  [[HTTPService instance]getCakes:^(NSArray * _Nullable data, NSString * _Nullable errMessage) {
+    if(data) {
+      NSMutableArray *cakes = [[NSMutableArray alloc] init];
+      for( NSDictionary *cakeDict in data) {
+        Cake *cake = [[Cake alloc]init];
+        cake.title = [cakeDict objectForKey:@TITLE];
+        cake.desc = [cakeDict objectForKey:@DESCRIPTION];
+        cake.image = [cakeDict objectForKey:@IMAGE];
+        [cakes addObject:cake];
+      }
+      self.cakesList =  cakes;
+      [self updateTableData];
+      
+    }
+    else if (errMessage) {
+      NSLog(@"ERROR: %@",errMessage);
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if ([self.refreshControl isRefreshing]) {
+        [self.refreshControl endRefreshing];
+      }
+    });
+    
+  }];
+}
+
+-(void)updateTableData {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+  });
 }
 
 #pragma mark - Table View
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+  return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+  return self.cakesList.count;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  Cake *cake = [self.cakesList objectAtIndex:indexPath.row];
+  CakeCell *cakeCell = (CakeCell*)cell;
+  [cakeCell updateUI:cake];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CakeCell *cell = (CakeCell*)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
-    NSDictionary *object = self.objects[indexPath.row];
-    cell.titleLabel.text = object[@"title"];
-    cell.descriptionLabel.text = object[@"desc"];
- 
-    
-    NSURL *aURL = [NSURL URLWithString:object[@"image"]];
-    NSData *data = [NSData dataWithContentsOfURL:aURL];
-    UIImage *image = [UIImage imageWithData:data];
-    [cell.cakeImageView setImage:image];
-    
-    return cell;
+  CakeCell *cell = (CakeCell*)[tableView dequeueReusableCellWithIdentifier:@CELL_ID forIndexPath:indexPath];
+  if (!cell) {
+    cell = [[CakeCell alloc]init];
+  }
+  Cake *cake = [self.cakesList objectAtIndex:indexPath.row];
+  [cell updateUI:cake];
+  
+  return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-- (void)getData{
-    
-    NSURL *url = [NSURL URLWithString:@"https://gist.githubusercontent.com/hart88/198f29ec5114a3ec3460/raw/8dd19a88f9b8d24c23d9960f3300d0c917a4f07c/cake.json"];
-    
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    
-    NSError *jsonError;
-    id responseData = [NSJSONSerialization
-                       JSONObjectWithData:data
-                       options:kNilOptions
-                       error:&jsonError];
-    if (!jsonError){
-        self.objects = responseData;
-        [self.tableView reloadData];
-    } else {
-    }
-    
-}
-
 @end
+
